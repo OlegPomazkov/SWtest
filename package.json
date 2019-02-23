@@ -1,0 +1,14 @@
+{
+  "name": "SW",
+  "scripts": {
+    "dev": "nuxt"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.6",
+    "axios": "^0.18.0",
+    "element-ui": "^2.5.4",
+    "nuxt": "^2.4.3",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
+  }
+}
