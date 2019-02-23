@@ -13,11 +13,22 @@
     <div class="ships__table">
       <el-table
         :data="ships"
+        @row-click="handleRowClick"
         style="width: 100%">
         
           <el-table-column
             prop="name"
             label="Name"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="model"
+            label="Model"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="starship_class"
+            label="Class"
             width="180">
           </el-table-column>
 
@@ -31,6 +42,7 @@
 import ShipSearch from '@/components/AllShips/ShipSearch'
 import PaginationComp from '@/components/AllShips/PaginationComp'
 import { mapState, mapGetters } from 'vuex'
+import { getShipId } from '@/utils/helpers'
 
 export default {
   components: {
@@ -49,6 +61,9 @@ export default {
     }
   },
   methods: {
+    handleRowClick(ev) {
+      this.$router.push(`/ship/${getShipId(ev.url)}`)
+    }
   }
 }
 </script>

@@ -1,4 +1,5 @@
-import { SHIPS_PER_PAGE } from '@/assets/constants'
+import { SHIPS_PER_PAGE } from '@/utils/constants'
+import { getShipId } from '@/utils/helpers'
 
 export const state = () => ({
   currentPage: 0,
@@ -13,6 +14,9 @@ export const state = () => ({
 export const getters = {
   shipsOnPage: (state) => (page) => {
     return state.ships.filter( (item, i) => (i >= page*SHIPS_PER_PAGE) && (i < ((page+1)*SHIPS_PER_PAGE)))
+  },
+  getShipById: (state) => (id) => {
+    return state.ships.filter( (item, i) => getShipId(item.url) === id)[0]
   }
 }
 
