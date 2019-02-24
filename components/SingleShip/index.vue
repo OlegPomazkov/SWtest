@@ -24,9 +24,24 @@
 import { mapGetters } from 'vuex'
 
 const SHIP_DATA = [
-  {name: 'name',           label: 'Name'},
-  {name: 'starship_class', label: 'Class'},
-  {name: 'model',          label: 'Model'}
+  {name: 'name',           			label: 'Name'},
+  {name: 'model',          			label: 'Model'},
+  {name: 'starship_class', 			label: 'Class'},
+  {name: 'manufacturer',   			label: 'Manufacturer'},
+  {name: 'cost_in_credits',			label: 'Cost in credits'},
+  {name: 'length',         			label: 'Length'},
+  {name: 'max_atmosphering_speed', 	label: 'Max atmosphering speed'},
+  {name: 'crew',          			label: 'Crew'},
+  {name: 'passengers',          	label: 'Passengers'},
+  {name: 'cargo_capacity',          label: 'Cargo capacity'},
+  {name: 'consumables',     	    label: 'Consumables'},
+  {name: 'hyperdrive_rating',       label: 'Hyperdrive rating'},
+  {name: 'MGLT',		          	label: 'MGLT'},
+  {name: 'filmsInfo',          		label: 'Films'},
+  {name: 'pilotsInfo',         		label: 'Pilots'},
+  {name: 'created',          		label: 'created'},
+  {name: 'edited',          		label: 'edited'},
+  {name: 'url',  			        label: 'url'}
 ]
 export default {
   props: {

@@ -12,12 +12,20 @@ export default {
 
 	await Promise.all([
       app.store.dispatch('setShipFilms', shipData.films),
-//      app.store.dispatch('setShipPilots', ship.data.pilots)
+      app.store.dispatch('setShipPilots', shipData.pilots)
     ])
-	shipData.filmsInfo = app.store.getters.getFilmsInfo(shipData.films)
+    let filmsStr = '' 
+    let pilotsStr = ''
 
-  	debugger
-
+    app.store.getters.getFilmsInfo(shipData.films).forEach( obj => {
+    	filmsStr += `, "${obj.title}" episode ${obj.episode}` 
+    })
+    app.store.getters.getPilotsInfo(shipData.pilots).forEach( obj => {   	
+    	pilotsStr += `, ${obj.name}` 
+    })
+	shipData.filmsInfo = filmsStr.slice(2)
+	shipData.pilotsInfo = pilotsStr.slice(2)
+  	
   	return {
   	  shipData: shipData
   	}

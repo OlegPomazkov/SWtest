@@ -15,7 +15,8 @@
 		  	type="primary" 
 		  	size="mini"
 		  	icon="el-icon-arrow-right" 
-		  	circle/>
+		  	circle
+		  	@click="moveToShipPage"/>
   	</div>
 
   	<div
@@ -35,6 +36,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { getShipId } from '@/utils/helpers'
 
 export default {
   data() {
@@ -63,6 +65,9 @@ export default {
   	setFoundShipName(ship) {
   	  this.searchStr = ship.name
   	  this.shipUrl = ship.url
+  	},
+  	moveToShipPage() {
+  		this.$router.push(`/ship/${getShipId(this.shipUrl)}`)
   	} 
   }
 }

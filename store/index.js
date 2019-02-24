@@ -25,6 +25,13 @@ export const getters = {
     films.forEach( url => {arr.push(state.films[url])})
 
     return arr
+  },
+  getPilotsInfo: (state) => (pilots) => {
+    let arr = []
+
+    pilots.forEach( url => {arr.push(state.pilots[url])})
+
+    return arr
   }
 }
 
@@ -53,8 +60,8 @@ export const mutations = {
     state.films[newFilm.filmUrl].episode = newFilm.episode
   },
   ADD_PILOT (state, newPilot) {
-    state.pilots[newPilot.url] = {}
-    state.pilots[newPilot.url].name = newPilot.name
+    state.pilots[newPilot.pilotUrl] = {}
+    state.pilots[newPilot.pilotUrl].name = newPilot.name
   }
 }
 
@@ -134,6 +141,24 @@ export const actions = {
       filmUrl: filmUrl,
       title: resp.data.title,
       episode: resp.data.episode_id
+    })
+  },
+  async setShipPilots({dispatch, commit, state}, pilots) {
+    let promises = []
+
+    pilots.forEach( pilot => {
+      if( !(pilot in state.pilots) ){
+        promises.push( dispatch('setNewPilot', pilot))
+      }
+    })
+    await Promise.all(promises)      
+  },
+  async setNewPilot({dispatch, commit, state}, pilotUrl) {
+    const resp = await this.$axios(pilotUrl)
+    
+    commit('ADD_PILOT', {
+      pilotUrl: pilotUrl,
+      name: resp.data.name
     })
   }
 }
