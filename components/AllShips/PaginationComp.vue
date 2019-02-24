@@ -9,7 +9,7 @@
   	  circle/>
 
   	<span>
-  	  {{ `${currentPage+1} from ${pagesAll}`}}	
+  	  {{ `page ${currentPage+1} from ${pagesAll}`}}	
   	</span>
 
   	<el-button 
@@ -46,4 +46,10 @@ export default {
 <style lang="stylus">
 .pagination
   color #333
+  padding 5px
+  padding-bottom 8px
+  height 38px
+  background-color #f1f1f1
+  border-radius 17px
+
 </style>

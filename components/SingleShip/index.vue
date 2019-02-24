@@ -2,19 +2,19 @@
   <div class="ship">
 
   	<div class="ship__title">
-  		SHIP  {{ $route.params.ship }}	
+  		SHIP PARAMETERS	
   	</div> 
 
-  	<div class="ship__info">
-  	  <el-input 
-  	  	v-for="(item, k) in pageData"
-  	  	:key="k"
-  	    placeholder="Please input" 
-  	    v-model="ship[item.name]">
-    	  <template slot="prepend">
-    	  	{{item.label}}
-    	  </template>
-  	  </el-input>  
+  	<div 
+      class="ship__info"
+      v-for="(item, k) in pageData"
+      :key="k">
+        <div class="ship__info__label">
+          {{item.label}}
+        </div>
+        <div class="ship__info__value">
+          {{ship[item.name]}}
+        </div>
   	</div>
 
   </div>
@@ -24,24 +24,24 @@
 import { mapGetters } from 'vuex'
 
 const SHIP_DATA = [
-  {name: 'name',           			label: 'Name'},
-  {name: 'model',          			label: 'Model'},
-  {name: 'starship_class', 			label: 'Class'},
-  {name: 'manufacturer',   			label: 'Manufacturer'},
-  {name: 'cost_in_credits',			label: 'Cost in credits'},
-  {name: 'length',         			label: 'Length'},
-  {name: 'max_atmosphering_speed', 	label: 'Max atmosphering speed'},
-  {name: 'crew',          			label: 'Crew'},
-  {name: 'passengers',          	label: 'Passengers'},
+  {name: 'name',           			    label: 'Name'},
+  {name: 'model',          			    label: 'Model'},
+  {name: 'starship_class', 			    label: 'Class'},
+  {name: 'manufacturer',   			    label: 'Manufacturer'},
+  {name: 'cost_in_credits',			    label: 'Cost in credits'},
+  {name: 'length',         			    label: 'Length'},
+  {name: 'max_atmosphering_speed',  label: 'Max atmosphering speed'},
+  {name: 'crew',          			    label: 'Crew'},
+  {name: 'passengers',          	  label: 'Passengers'},
   {name: 'cargo_capacity',          label: 'Cargo capacity'},
-  {name: 'consumables',     	    label: 'Consumables'},
+  {name: 'consumables',     	      label: 'Consumables'},
   {name: 'hyperdrive_rating',       label: 'Hyperdrive rating'},
-  {name: 'MGLT',		          	label: 'MGLT'},
-  {name: 'filmsInfo',          		label: 'Films'},
-  {name: 'pilotsInfo',         		label: 'Pilots'},
-  {name: 'created',          		label: 'created'},
-  {name: 'edited',          		label: 'edited'},
-  {name: 'url',  			        label: 'url'}
+  {name: 'MGLT',		          	    label: 'MGLT'},
+  {name: 'filmsInfo',          		  label: 'Films'},
+  {name: 'pilotsInfo',           		label: 'Pilots'},
+  {name: 'created',          		    label: 'created'},
+  {name: 'edited',          		    label: 'edited'},
+  {name: 'url',  			              label: 'url'}
 ]
 export default {
   props: {
@@ -59,4 +59,38 @@ export default {
 </script>
 
 <style lang="stylus">
+.ship
+  margin-left auto
+  margin-right auto
+  width 800px
+  display flex
+  flex-direction column
+  justify-content center
+  align-items center
+
+
+  &__title
+    font-size 24px
+    font-weight bold
+    color #555
+
+  &__info
+    width 100%
+    display flex
+    flex-direction row
+    justify-content start
+    align-items center
+    padding 1px
+
+    &__label
+      min-width 250px
+      padding-left 15px
+      color #888
+      font-weight bold
+      background-color #eee
+
+    &__value
+      padding-left 15px
+      color #444
+      font-style italic
 </style>

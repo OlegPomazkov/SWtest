@@ -2,7 +2,7 @@
   <div class="ships">
   	
     <div class="ships__title">
-  	  Список кораблей
+  	  SHIPS LIST
   	</div>
 
     <div class="ships__controls">
@@ -13,23 +13,22 @@
     <div class="ships__table">
       <el-table
         :data="ships"
-        @row-click="handleRowClick"
-        style="width: 100%">
+        size="medium"
+        @row-click="handleRowClick">
         
           <el-table-column
             prop="name"
             label="Name"
-            width="180">
+            width="250">
           </el-table-column>
           <el-table-column
             prop="model"
-            label="Model"
-            width="180">
+            label="Model">
           </el-table-column>
           <el-table-column
             prop="starship_class"
             label="Class"
-            width="180">
+            width="250">
           </el-table-column>
 
       </el-table>
@@ -70,6 +69,9 @@ export default {
 
 <style lang="stylus">
 .ships
+  margin-left auto
+  margin-right auto
+  width 800px
   display flex
   flex-direction column
   justify-content center
@@ -77,13 +79,19 @@ export default {
 
   &__title
     font-size 24px
+    font-weight bold
+    color #555
+
 
   &__controls
+    width 100%
+    padding-left 15px
+    padding-right 15px
     display flex
     flex-direction row
     justify-content space-between
     align-items center
 
-  & .search
-    color #f00
+  &__table 
+    width 100%
 </style>
