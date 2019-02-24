@@ -79,6 +79,8 @@ export default {
 </script>
 
 <style lang="stylus">
+@import '~assets/styles/variables.styl'
+
 .ship_search
   position relative
   width 280px
@@ -103,6 +105,8 @@ export default {
     padding-bottom 8px
     overflow auto
     z-index 10
+    border 1px solid #409eff
+    border-radius 4px
     background-color #fafafa
 
     &__item
@@ -112,8 +116,8 @@ export default {
       align-items center
       padding-top 5px
       cursor pointer
-      color #666
-      border-bottom 1px solid #eee 
+      color $textColorDark
+      border-bottom 1px solid $line 
 
       &:hover
         background-color #eee

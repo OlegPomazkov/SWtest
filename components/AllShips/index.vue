@@ -17,18 +17,10 @@
         @row-click="handleRowClick">
         
           <el-table-column
-            prop="name"
-            label="Name"
-            width="250">
-          </el-table-column>
-          <el-table-column
-            prop="model"
-            label="Model">
-          </el-table-column>
-          <el-table-column
-            prop="starship_class"
-            label="Class"
-            width="250">
+            v-for="( item, k) in shipsTable"
+            :prop="item.name"
+            :label="item.label"
+            :width="item.width">
           </el-table-column>
 
       </el-table>
@@ -43,10 +35,21 @@ import PaginationComp from '@/components/AllShips/PaginationComp'
 import { mapState, mapGetters } from 'vuex'
 import { getShipId } from '@/utils/helpers'
 
+const SHIPS_TABLE = [
+  { name: 'name',           label: 'Name' , width: '250'},
+  { name: 'model',          label: 'Model'},
+  { name: 'starship_class', label: 'Class', width: '250'}
+]
+
 export default {
   components: {
     ShipSearch, 
     PaginationComp
+  },
+  data() {
+    return {
+      shipsTable: SHIPS_TABLE
+    }
   },
   computed: {
     ...mapState({
@@ -68,6 +71,8 @@ export default {
 </script>
 
 <style lang="stylus">
+@import '~assets/styles/variables.styl'
+
 .ships
   margin-left auto
   margin-right auto
@@ -80,7 +85,7 @@ export default {
   &__title
     font-size 24px
     font-weight bold
-    color #555
+    color $textColorDark
 
 
   &__controls

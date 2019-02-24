@@ -44,12 +44,14 @@ export default {
 </script>
 
 <style lang="stylus">
+@import '~assets/styles/variables.styl'
+
 .pagination
-  color #333
+  color $textColorDark
   padding 5px
   padding-bottom 8px
   height 38px
-  background-color #f1f1f1
+  background-color $bgColor
   border-radius 17px
 
 </style>
