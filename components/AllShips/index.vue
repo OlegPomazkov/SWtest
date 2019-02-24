@@ -18,6 +18,7 @@
         
           <el-table-column
             v-for="( item, k) in shipsTable"
+            :key="k"
             :prop="item.name"
             :label="item.label"
             :width="item.width">
