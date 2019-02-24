@@ -1,7 +1,7 @@
 # SWtest
 
-загрузить зависимости: npm init
+клонировать репозиторий --> cd/SWtest --> загрузить зависимости: npm install
 
-чтобы запустить: npm run dev
+запустить: npm run dev
 
-чтобы посмотреть: http://localhost:3000/
+в браузере на: http://localhost:3000/
