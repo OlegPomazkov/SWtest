@@ -44,4 +44,6 @@ export default {
 </script>
 
 <style lang="stylus">
+.pagination
+  color #333
 </style>

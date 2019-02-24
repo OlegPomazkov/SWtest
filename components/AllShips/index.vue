@@ -75,9 +75,15 @@ export default {
   justify-content center
   align-items center
 
+  &__title
+    font-size 24px
+
   &__controls
     display flex
     flex-direction row
     justify-content space-between
     align-items center
+
+  & .search
+    color #f00
 </style>

@@ -1,20 +1,21 @@
 <template>
   <div class="ship">
+
   	<div class="ship__title">
   		SHIP  {{ $route.params.ship }}	
-  	</div class="ship__info"> 
+  	</div> 
+
+  	<div class="ship__info">
   	  <el-input 
   	  	v-for="(item, k) in pageData"
+  	  	:key="k"
   	    placeholder="Please input" 
   	    v-model="ship[item.name]">
     	  <template slot="prepend">
     	  	{{item.label}}
     	  </template>
-  	  </el-input>
-  	<div>
-  		
+  	  </el-input>  
   	</div>
-
 
   </div>
 </template>
@@ -28,20 +29,17 @@ const SHIP_DATA = [
   {name: 'model',          label: 'Model'}
 ]
 export default {
+  props: {
+  	ship: {
+  	  type: Object,
+  	  required: true
+  	}
+  },
   data() {
   	return {
   	  pageData: SHIP_DATA
   	}
-  },
-  computed:{
-  	...mapGetters([
-  	  'getShipById'
-  	]),
-  	ship() {
-  	  return this.getShipById(this.$route.params.ship)
-  	}
   }
-
 }
 </script>
 
