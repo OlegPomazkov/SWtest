@@ -52,6 +52,7 @@ export const mutations = {
     state.shipNames = names
   },
   ADD_SHIPS (state, newShips) {
+    if (state.shipsAll > 0 && +state.shipsAll === state.ships.length) return
     newShips.forEach( item => {state.ships.push(item)})
   }, 
   ADD_FILM (state, newFilm) {
@@ -66,16 +67,16 @@ export const mutations = {
 }
 
 export const actions = {
-  setShipsAll({commit}, count) {
+  setShipsAll({commit, state}, count) {
     commit('SET_SHIPS_ALL', count)
   },
-  setPagesAll({commit}, count) {
+  setPagesAll({commit}, count) {     
     commit('SET_PAGES_ALL', count)
   },
   setNextPage({commit}, url) {
     commit('SET_NEXT_PAGE_URL', url)
   },
-  addShips({commit}, ships) {
+  addShips({commit, state}, ships) {
     commit('ADD_SHIPS', ships)
   },
   decrementPage({commit, state}) {
@@ -108,6 +109,8 @@ export const actions = {
     dispatch('fillShipNamesArray')
   },
   async fillShipsArray({dispatch, state}) {
+    if (state.ships.length === state.shipsAll) return
+
     do {
       await dispatch('getNextPageData')
     } 

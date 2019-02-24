@@ -1,6 +1,14 @@
 <template>
+
   <div>
-    <nuxt />
+    <div class="pages_header">
+      <div class="pages_header__inner">
+        SPACE-SHIPS EXPLORE APPLICATION
+      </div>
+    </div>
+
+      <nuxt />
+  
   </div>
 </template>
 
@@ -23,33 +31,18 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
+</style>
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
+<style lang="stylus">
+.pages_header
+  font-size 28px
+  font-weight bold
+  height  40px
+  color #fafafa
+  background-color #ccc
+  margin-bottom 10px
+  display flex
+  flex-direction row
+  justify-content center
+  align-items center
 </style>

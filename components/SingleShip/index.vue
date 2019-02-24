@@ -5,17 +5,28 @@
   		SHIP PARAMETERS	
   	</div> 
 
-  	<div 
-      class="ship__info"
-      v-for="(item, k) in pageData"
-      :key="k">
-        <div class="ship__info__label">
-          {{item.label}}
-        </div>
-        <div class="ship__info__value">
-          {{ship[item.name]}}
-        </div>
-  	</div>
+    <div class="ship__info_wrapper">
+    	<div 
+        class="ship__info_wrapper__info"
+        v-for="(item, k) in pageData"
+        :key="k">
+          <div class="ship__info_wrapper__info__label">
+            {{item.label}}
+          </div>
+          <div class="ship__info_wrapper__info__value">
+            {{ship[item.name]}}
+          </div>
+    	</div>
+    </div>
+
+    <div сlass="ship__button">
+      <el-button          
+          type="primary" 
+          size="mini" 
+          @click="moveToShipsPage">
+            BACK TO SHIPS LIST
+      </el-button>
+    </div>
 
   </div>
 </template>
@@ -54,6 +65,11 @@ export default {
   	return {
   	  pageData: SHIP_DATA
   	}
+  },
+  methods: {
+    moveToShipsPage() {
+      this.$router.push(`/`)
+    } 
   }
 }
 </script>
@@ -70,27 +86,35 @@ export default {
 
 
   &__title
+    margin-bottom 30px
     font-size 24px
     font-weight bold
     color #555
 
-  &__info
+  &__info_wrapper
     width 100%
     display flex
-    flex-direction row
-    justify-content start
-    align-items center
-    padding 1px
+    flex-direction column
+    margin-bottom 30px
 
-    &__label
-      min-width 250px
-      padding-left 15px
-      color #888
-      font-weight bold
-      background-color #eee
+    &__info
+      width 100%
+      display flex
+      flex-direction row
+      justify-content start
+      align-items center
+      padding 1px
 
-    &__value
-      padding-left 15px
-      color #444
-      font-style italic
+      &__label
+        min-width 250px
+        padding-left 15px
+        color #888
+        font-weight bold
+        background-color #eee
+
+      &__value
+        padding-left 15px
+        color #444
+        font-style italic
+
 </style>

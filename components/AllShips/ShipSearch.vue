@@ -68,6 +68,7 @@ export default {
     setFoundShipName(ship) {
       this.searchStr = ship.name
       this.shipUrl = ship.url
+      this.findShips()
     },
     moveToShipPage() {
       if ( this.searchStr === '' ) return

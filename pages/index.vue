@@ -17,7 +17,7 @@ export default {
     app.store.dispatch('setShipsAll', res.count)
     app.store.dispatch('setNextPage', res.next)
     app.store.dispatch('addShips', res.results)
-  }
+  }, 
 }
 </script>
 
